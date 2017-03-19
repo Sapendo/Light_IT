@@ -1,0 +1,33 @@
+.container {
+    background-color: #EEEEEE;
+}
+
+.chartArea {
+    min-height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+}
+
+.form {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.button {
+    position: relative;
+    top: 27px;
+    left: 608px;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+    font: 1.5em Verdana, Arial;
+    color: #ccc;
+    font-family: Verdana, Arial;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #DC3912;     
+}

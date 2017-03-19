@@ -1,5 +1,6 @@
 .container {
     background-color: #EEEEEE;
+    margin-top: 20px;
 }
 
 .chartArea {
@@ -30,4 +31,47 @@
 .button:hover {
     color: #fff;
     background-color: #DC3912;     
+}
+
+.buttonInfo {
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    color: #616161;
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.searchPerson, .showGraph {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.buttonStatistic {
+    width: 100px;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px #ccc;
+}
+.buttonStatistic:hover{
+    box-shadow: inset 2px 2px #ccc;
+}
+label {
+    margin-right: 10px;
+    color: #616161;
+    font-size: 1.2em;
+}
+
+#search {
+    padding-left: 5px;
+    border-radius: 7px;
+    height: 30px;
+    width: 300px;
 }

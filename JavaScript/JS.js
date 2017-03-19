@@ -25,7 +25,7 @@
              
               shortInfo = '<tr class="shortInfo"><td><img src="' + item.picture.thumbnail + '" alt="photoPerson"></td>' + '<td>' + item.name.last + '</td><td>' + item.name.first + '</td><td>' + item.login.username + '</td><td>' + item.phone + '</td><td>' + item.location.city + '</td><td><button class="buttonInfo"><i class="fa fa-plus" aria-hidden="true"></i></button></td></tr>';  
               
-              moreInfo =  '<tr class="moreInfo"><td>' + item.name.first + '</td><td>' + item.name.last + '</td><td>' + item.login.username + '</td><td>' + item.registered + '</td><td>' + item.email + '</td><td>' + item.dob + '</td><td>' + item.phone + '</td><td>' + item.cell + '</td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
+              moreInfo =  '<tr class="moreInfo"><td></td><td><p><span class="bold">Name: </span>' + item.name.first + '<br/><p><span class="bold">Username: </span>' + item.login.username + '</p><p><span class="bold">Registered: </span>' + item.registered + '</p><p><span class="bold">Email: </span>' + item.email + '</p></td><td><p><span class="bold">Address: </span>' + item.location.street + ' ' + item.location.state + '</p><p><span class="bold">City: </span>' + item.location.city + '</p><p><span class="bold">Zip Code: </span>' + item.location.postcard + '</p></td><td><p><span class="bold">Birthday: </span>' + item.dob + '</p><p><span class="bold">Phone: </span>' + item.phone + '</p><p><span class="bold">Cell: </span>' + item.cell + '</p></td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
               
               allInfo = shortInfo + moreInfo;
               $('#tbody').append(allInfo);
@@ -41,7 +41,10 @@
           })(jQuery);
           
           $(".shortInfo:odd").css("background-color", "#CCCCCC");
-          $("#tbody tr>td").addClass("text-center");
+          $(".bold").css("font-weight", "bold");
+          $("#tbody .shortInfo>td").addClass("text-center");
+          $("#tbody .moreInfo>td").addClass("text-left");
+          $("#tbody .moreInfo>td").css("width","500px");
           $(".shortInfo td").css("vertical-align","middle");
           $("img").css({
               "border-radius": "50%",

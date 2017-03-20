@@ -17,6 +17,9 @@
           var shortInfo;
           var moreInfo;
           var allInfo;
+          var male = '<i class="fa fa-male" aria-hidden="true"></i>';
+          var female = '<i class="fa fa-female" aria-hidden="true"></i>';
+          var genderIcon;
           for (var i = 0, j = 1; i < items.results.length; i++, j++) {
               item = items.results[i];
               if (item.gender === 'male') {
@@ -24,8 +27,8 @@
               } else countFemail++;
              
               shortInfo = '<tr class="shortInfo"><td><img src="' + item.picture.thumbnail + '" alt="photoPerson"></td>' + '<td>' + item.name.last + '</td><td>' + item.name.first + '</td><td>' + item.login.username + '</td><td>' + item.phone + '</td><td>' + item.location.city + '</td><td><button class="buttonInfo"><i class="fa fa-plus" aria-hidden="true"></i></button></td></tr>';  
-              
-              moreInfo =  '<tr class="moreInfo"><td></td><td><p><span class="bold">Name: </span>' + item.name.first + '<br/><p><span class="bold">Username: </span>' + item.login.username + '</p><p><span class="bold">Registered: </span>' + item.registered + '</p><p><span class="bold">Email: </span>' + item.email + '</p></td><td><p><span class="bold">Address: </span>' + item.location.street + ' ' + item.location.state + '</p><p><span class="bold">City: </span>' + item.location.city + '</p><p><span class="bold">Zip Code: </span>' + item.location.postcard + '</p></td><td><p><span class="bold">Birthday: </span>' + item.dob + '</p><p><span class="bold">Phone: </span>' + item.phone + '</p><p><span class="bold">Cell: </span>' + item.cell + '</p></td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
+              genderIcon = (item.gender==='male')?male:female;
+              moreInfo =  '<tr class="moreInfo"><td></td><td><p><span class="bold">Name: </span>' + item.name.first + ' ' + genderIcon +'<br/><p><span class="bold">Username: </span>' + item.login.username + '</p><p><span class="bold">Registered: </span>' + item.registered + '</p><p><span class="bold">Email: </span>' + item.email + '</p></td><td><p><span class="bold">Address: </span>' + item.location.street + ' ' + item.location.state + '</p><p><span class="bold">City: </span>' + item.location.city + '</p><p><span class="bold">Zip Code: </span>' + item.location.postcard + '</p></td><td><p><span class="bold">Birthday: </span>' + item.dob + '</p><p><span class="bold">Phone: </span>' + item.phone + '</p><p><span class="bold">Cell: </span>' + item.cell + '</p></td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
               
               allInfo = shortInfo + moreInfo;
               $('#tbody').append(allInfo);

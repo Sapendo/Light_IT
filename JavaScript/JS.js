@@ -25,11 +25,13 @@
               if (item.gender === 'male') {
                   countMale++;
               } else countFemail++;
-             
-              shortInfo = '<tr class="shortInfo"><td><img src="' + item.picture.thumbnail + '" alt="photoPerson"></td>' + '<td>' + item.name.last + '</td><td>' + item.name.first + '</td><td>' + item.login.username + '</td><td>' + item.phone + '</td><td>' + item.location.city + '</td><td><button class="buttonInfo"><i class="fa fa-plus" aria-hidden="true"></i></button></td></tr>';  
-              genderIcon = (item.gender==='male')?male:female;
-              moreInfo =  '<tr class="moreInfo"><td></td><td><p><span class="bold">Name: </span>' + item.name.first + ' ' + genderIcon +'<br/><p><span class="bold">Username: </span>' + item.login.username + '</p><p><span class="bold">Registered: </span>' + item.registered + '</p><p><span class="bold">Email: </span>' + item.email + '</p></td><td><p><span class="bold">Address: </span>' + item.location.street + ' ' + item.location.state + '</p><p><span class="bold">City: </span>' + item.location.city + '</p><p><span class="bold">Zip Code: </span>' + item.location.postcard + '</p></td><td><p><span class="bold">Birthday: </span>' + item.dob + '</p><p><span class="bold">Phone: </span>' + item.phone + '</p><p><span class="bold">Cell: </span>' + item.cell + '</p></td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
+
               
+
+              shortInfo = '<tr class="shortInfo"><td><img src="' + item.picture.thumbnail + '" alt="photoPerson"></td>' + '<td>' + toUpperLetter(item.name.last) + '</td><td>' + toUpperLetter(item.name.first) + '</td><td>' + item.login.username + '</td><td>' + item.phone + '</td><td>' + toUpperLetter(item.location.city) + '</td><td><button class="buttonInfo"><i class="fa fa-plus" aria-hidden="true"></i></button></td></tr>';
+              genderIcon = (item.gender === 'male') ? male : female;
+              moreInfo = '<tr class="moreInfo"><td></td><td><p><span class="firstName">'+toUpperLetter(item.name.first) + '</span> ' + genderIcon + '<br/><p><span class="bold">Username: </span>' + item.login.username + '</p><p><span class="bold">Registered: </span>' + item.registered + '</p><p><span class="bold">Email: </span>' + item.email + '</p></td><td><p><span class="bold">Address: </span>' + item.location.street + ' ' + item.location.state + '</p><p><span class="bold">City: </span>' + toUpperLetter(item.location.city) + '</p><p><span class="bold">Zip Code: </span>' + item.location.postcode + '</p></td><td><p><span class="bold">Birthday: </span>' + item.dob + '</p><p><span class="bold">Phone: </span>' + item.phone + '</p><p><span class="bold">Cell: </span>' + item.cell + '</p></td><td><img src="' + item.picture.large + '" alt="photoPerson"></td></tr>';
+
               allInfo = shortInfo + moreInfo;
               $('#tbody').append(allInfo);
           }
@@ -42,13 +44,13 @@
                   return false;
               });
           })(jQuery);
-          
+
           $(".shortInfo:odd").css("background-color", "#CCCCCC");
           $(".bold").css("font-weight", "bold");
           $("#tbody .shortInfo>td").addClass("text-center");
           $("#tbody .moreInfo>td").addClass("text-left");
-          $("#tbody .moreInfo>td").css("width","500px");
-          $(".shortInfo td").css("vertical-align","middle");
+          $("#tbody .moreInfo>td").css("width", "500px");
+          $(".shortInfo td").css("vertical-align", "middle");
           $("img").css({
               "border-radius": "50%",
               "border-style": "solid",
@@ -88,6 +90,7 @@
           'packages': ['corechart']
       });
       google.charts.setOnLoadCallback(drawChart);
+
       function drawChart() {
           var data = google.visualization.arrayToDataTable([
               ['Gender', 'Count'],
@@ -128,3 +131,11 @@
           }
       }
   }
+function toUpperLetter(word) {
+                  var newWord = '';
+                  for (var i = 0; i < word.length; i++) {
+                      newWord += (i === 0) ? word[i].toUpperCase() : word[i];
+
+                  }
+                  return newWord;
+              }

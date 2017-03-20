@@ -75,3 +75,12 @@ label {
     height: 30px;
     width: 300px;
 }
+.firstName {
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+.fa-male, .fa-female {
+    color: #616161;
+    font-size: 25px !important;
+}
